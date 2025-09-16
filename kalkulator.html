@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  </style>
+</head>
+<body>
+  <div class="kalkulator">
+    <div>
+      <label for="bil1">Bilangan 1</label>
+      <input type="number" id="bil1">
+    </div>
+    <div>
+      <label for="bil2">Bilangan 2</label>
+      <input type="number" id="bil2">
+    </div>
+    <div class="buttons">
+      <button onclick="hitung('+')">+</button>
+      <button onclick="hitung('-')">-</button>
+      <button onclick="hitung('*')">x</button>
+      <button onclick="hitung('/')">÷</button>
+    </div>
+    <div class="hasil" id="hasil">Hasil: -</div>
+  </div>
+
+  <script>
+    function hitung(operator) {
+      let bil1 = parseFloat(document.getElementById('bil1').value);
+      let bil2 = parseFloat(document.getElementById('bil2').value);
+      let hasil = 0;
+
+      if (isNaN(bil1) || isNaN(bil2)) {
+        document.getElementById('hasil').innerText = "Harap isi kedua bilangan!";
+        return;
+      }
+
+      switch(operator) {
+        case '+': hasil = bil1 + bil2; break;
+        case '-': hasil = bil1 - bil2; break;
+        case '*': hasil = bil1 * bil2; break;
+        case '/': 
+          hasil = bil2 !== 0 ? bil1 / bil2 : "Tidak bisa dibagi 0"; 
+          break;
+      }
+      document.getElementById('hasil').innerText = "Hasil: " + hasil;
+    }
+  </script>
+
+</body>
+</html>
